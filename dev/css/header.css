@@ -1,0 +1,305 @@
+.header-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  background-color: #0a102b;
+}
+.header-container__wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header__menu {
+  padding-top: 1rem;
+}
+.header__menu-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  height: 58px;
+}
+.header__menu-wrapper:last-child {
+  margin-top: 0.5rem;
+}
+.header__menu-wrapper-item1 {
+  width: 850px;
+  border-radius: 100px;
+  background-color: white;
+}
+.header__menu-wrapper-item1-logo {
+  margin: 0.5rem 0 0.5rem 2rem;
+}
+.header__menu-wrapper-lang {
+  width: 94px;
+  border-radius: 100px;
+  background-color: white;
+}
+.header__menu-wrapper-lang-img-change {
+  opacity: 0.8;
+  padding-left: 0.25rem;
+}
+.header__menu-wrapper-lang-img-flag {
+  padding-right: 0.375rem;
+}
+.header__menu-wrapper-lang-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 76px;
+  height: 42px;
+  border-radius: 50px;
+  background-color: #D5E2FC;
+  cursor: pointer;
+  margin-left: 9px;
+}
+.header__menu-wrapper-lang-menu:first-child {
+  margin-top: 8px;
+}
+.header__menu-wrapper-contact {
+  width: 258px;
+  border-radius: 100px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+.header__menu-wrapper-contact-mail {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50px;
+  background-color: #D5E2FC;
+  margin: 8px 0 0 9px;
+}
+.header__menu-wrapper-contact-tel {
+  width: 192px;
+  height: 42px;
+  border-radius: 50px;
+  background-color: #D5E2FC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px 0 0 0;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  color: black;
+}
+.header__menu-wrapper-contact-tel-img {
+  padding-right: 0.313rem;
+}
+.header__menu-wrapper-contact-mobile {
+  display: none;
+}
+.header__menu-wrapper-nav {
+  width: 780px;
+  border-radius: 100px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.header__menu-wrapper-nav-link {
+  margin-left: 2rem;
+  text-decoration: none;
+  font-family: Nunito Sans, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: black;
+}
+.header__menu-wrapper-nav-link-img {
+  margin-left: 0.25rem;
+}
+.header__menu-wrapper-sub {
+  width: 421px;
+  border-radius: 100px;
+  background-color: white;
+}
+.header__menu-wrapper-sub-box {
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0.563rem 0.5rem 0.563rem;
+}
+.header__menu-wrapper-sub-box-resume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 197px;
+  border-radius: 50px;
+  background-color: #d3e0f9;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #145CEF;
+}
+.header__menu-wrapper-sub-box-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 206px;
+  border-radius: 50px;
+  background-color: #145CEF;
+  color: #FCFCFC;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.header__menu-wrapper-sub-box-project-img {
+  margin-left: 0.5rem;
+}
+.header__menu-mobile {
+  display: none;
+}
+
+@media (max-width: 360px) {
+  .header__menu-wrapper {
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .header__menu-wrapper:last-child {
+    display: none;
+  }
+  .header__menu-wrapper-item1 {
+    width: 69.47px;
+    height: 54px;
+  }
+  .header__menu-wrapper-item1-logo {
+    margin: 0.313rem 0 0 0.875rem;
+  }
+  .header__menu-wrapper-lang {
+    display: none;
+  }
+  .header__menu-wrapper-contact {
+    width: 148px;
+    height: 54px;
+    position: relative;
+  }
+  .header__menu-wrapper-contact-mail {
+    width: 46px;
+    height: 46px;
+    margin: 4px 0 0 5px;
+  }
+  .header__menu-wrapper-contact-tel {
+    text-indent: -9999px;
+    white-space: nowrap;
+    width: 46px;
+    height: 46px;
+    margin: 4px 0 4px 0;
+  }
+  .header__menu-wrapper-contact-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    margin: 4px 0 4px 0;
+    border-radius: 50px;
+    background-color: #D5E2FC;
+    cursor: pointer;
+    z-index: 99999;
+  }
+  .header__menu-wrapper-contact-mobile div {
+    position: absolute;
+    width: 16.88px;
+    height: 2.25px;
+    background: #145CEF;
+    border-radius: 5px;
+    transition: 0.8s;
+  }
+  .header__menu-wrapper-contact-mobile div:last-child {
+    margin-top: 10px;
+  }
+  .header__menu-wrapper-contact-mobile div:first-child {
+    margin-bottom: 10px;
+  }
+  .header__menu-wrapper-nav {
+    flex-direction: column;
+  }
+  .header__menu-wrapper-sub {
+    display: none;
+  }
+  .header__menu-mobile {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transform: translateX(150%);
+    transition: 0.3s;
+  }
+  .header__menu-mobile-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+  }
+  .header__menu-mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .header__menu-mobile-wrapper-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    margin: 4px 0 4px 0;
+    border-radius: 50px;
+    background-color: #D5E2FC;
+    cursor: pointer;
+  }
+  .header__menu-mobile-wrapper-close div {
+    position: absolute;
+    width: 16.88px;
+    height: 2.25px;
+    background: #145CEF;
+    border-radius: 5px;
+  }
+  .header__menu-mobile-wrapper-close div:first-child {
+    rotate: 45deg;
+  }
+  .header__menu-mobile-wrapper-close div:last-child {
+    rotate: -45deg;
+  }
+  .menu__open {
+    transform: translateX(0);
+  }
+  .menu__overflow {
+    overflow-y: hidden;
+  }
+  .menu__close div {
+    position: absolute;
+    width: 16.88px;
+    height: 2.25px;
+    background: #145CEF;
+    border-radius: 5px;
+    display: none;
+    transition: 0.5s;
+  }
+  .menu__close div:last-child {
+    display: block;
+    margin-top: unset;
+    rotate: 45deg;
+  }
+  .menu__close div:first-child {
+    display: block;
+    margin-bottom: unset;
+    rotate: -45deg;
+  }
+}

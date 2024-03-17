@@ -1,0 +1,32 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cssmin": "*",
+    "gulp-file-include": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-rigger": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify-es": "*",
+    "gulp-version-number": "*",
+    "gulp-watch": "*",
+    "jquery": "^3.7.1",
+    "rimraf": "*",
+    "sass": "*",
+    "uikit": "*"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1"
+  }
+}
