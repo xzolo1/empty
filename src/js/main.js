@@ -9,7 +9,6 @@ $(document).ready(function () {
         $('.button').click(function(e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            console.log(url);
             $('#content').load(url);
         });
     }

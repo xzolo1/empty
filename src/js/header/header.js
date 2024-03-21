@@ -1,6 +1,6 @@
 export default {
     init() {
-        //this.slider();
+        this.slider();
         this.menu();
     },
 
@@ -151,9 +151,9 @@ export default {
 
         }
     },
+
     menu(){
         let menuBtn = $('.menu__nav-links');
-
         menuBtn.click(function (){
             menuBtn.removeClass('active');
             $(this).addClass('active');

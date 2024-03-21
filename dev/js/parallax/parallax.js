@@ -7,7 +7,7 @@ export default {
     parallax() {
         $(document).scroll(function() {
             let value = $(this).scrollTop();
-
+            console.log('parallax');
             $('.parallax__wrapper-title').css('margin-top', value * 1.1 + 'px');
             $('.parallax__wrapper-leaf1').css('margin-left', -value + 'px');
             $('.parallax__wrapper-leaf2').css('margin-left', value + 'px');

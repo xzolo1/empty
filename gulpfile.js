@@ -6,7 +6,7 @@ let gulp = require('gulp'),
 	plumber = require("gulp-plumber"),
 	cssmin = require("gulp-cssmin"),
 	jsmin = require("gulp-uglify-es").default,
-	//webserver = require('gulp-webserver'),
+	server = require('gulp-webserver'),
 	concat = require('gulp-concat');
 	notify = require("gulp-notify"),
 	fileInclude = require('gulp-file-include'),
@@ -19,6 +19,7 @@ let host;
 let path = {
 	build: {
 		html: 'build/',
+		// page: 'build/pages',
 		js: 'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
@@ -26,6 +27,7 @@ let path = {
 	},
 	dev: {
 		html: 'dev/',
+		// page: 'dev/pages',
 		js: 'dev/js/',
 		css: 'dev/css/',
 		img: 'dev/img/',
@@ -33,6 +35,7 @@ let path = {
 	},
 	src: {
 		html: 'src/*.html',
+		// page: 'src/pages/*.html',
 		js: 'src/js/**/*.js',
 		css: 'src/css/*.scss',
 		img: 'src/img/**/*.*',
@@ -40,6 +43,7 @@ let path = {
 	},
 	watch: {
 		html: 'src/**/*.html',
+		// page: 'src/**/*.html',
 		js: 'src/js/**/*.js',
 		css: 'src/css/**/*.scss',
 		img: 'src/img/**/*.*',
@@ -89,6 +93,16 @@ if (host === undefined) {
 function webserver() {
 	browserSync(config);
 }
+function webserver1() {
+	return gulp.src('./')
+		.pipe(server({
+			livereload: true,
+			open: true
+		}))
+		.on('end', function() {
+			browserSync.reload();
+		});
+}
 
 let local_path;
 
@@ -112,6 +126,27 @@ function html() {
 			break;
 	}
 }
+
+// function page() {
+// 	switch (local_path) {
+// 		case 'build':
+// 			return gulp.src(path.src.page)
+// 				.pipe(rigger())
+// 				.pipe(fileInclude())
+// 				.pipe(version(versionConfig))
+// 				.pipe(gulp.dest(path.build.page));
+// 		case 'dev':
+// 			return gulp.src(path.src.page)
+// 				.pipe(rigger())
+// 				.pipe(fileInclude())
+// 				.pipe(version(versionConfig))
+// 				.pipe(gulp.dest(path.dev.page))
+// 				.pipe(reload({stream: true}));
+// 		default:
+// 			console.log(false);
+// 			break;
+// 	}
+// }
 
 function css() {
 	switch (local_path) {
@@ -200,6 +235,7 @@ function dev(done) {
 
 function watch() {
 	gulp.watch([path.watch.html], gulp.parallel(dev, html));
+	// gulp.watch([path.watch.page], gulp.parallel(dev, page));
 	gulp.watch([path.watch.css], gulp.parallel(dev, css));
 	gulp.watch([path.watch.js], gulp.parallel(dev, js));
 	gulp.watch([path.watch.img], gulp.parallel(dev, img));
@@ -209,4 +245,4 @@ function watch() {
 exports.build = gulp.parallel(build, html, css, js, img, fonts);
 exports.dev = gulp.parallel(dev, html, css, js, img, fonts);
 
-gulp.task('default', gulp.series(dev, html, css, js, img, fonts, gulp.parallel(webserver, watch)));
+gulp.task('default', gulp.series(dev, html, css, js, img, fonts, gulp.parallel([webserver, webserver1], watch)));
