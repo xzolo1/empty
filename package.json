@@ -27,6 +27,7 @@
     "uikit": "*"
   },
   "devDependencies": {
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "gulp-webserver": "^0.9.1"
   }
 }
