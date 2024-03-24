@@ -19,7 +19,7 @@ let host;
 let path = {
 	build: {
 		html: 'build/',
-		// page: 'build/pages',
+		page: 'build/pages',
 		js: 'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
@@ -27,7 +27,7 @@ let path = {
 	},
 	dev: {
 		html: 'dev/',
-		// page: 'dev/pages',
+		page: 'dev/pages',
 		js: 'dev/js/',
 		css: 'dev/css/',
 		img: 'dev/img/',
@@ -35,7 +35,7 @@ let path = {
 	},
 	src: {
 		html: 'src/*.html',
-		// page: 'src/pages/*.html',
+		page: 'src/pages/*.html',
 		js: 'src/js/**/*.js',
 		css: 'src/css/*.scss',
 		img: 'src/img/**/*.*',
@@ -43,7 +43,7 @@ let path = {
 	},
 	watch: {
 		html: 'src/**/*.html',
-		// page: 'src/**/*.html',
+		page: 'src/**/*.html',
 		js: 'src/js/**/*.js',
 		css: 'src/css/**/*.scss',
 		img: 'src/img/**/*.*',
@@ -126,27 +126,27 @@ function html() {
 			break;
 	}
 }
+function page() {
+	switch (local_path) {
+		case 'build':
+			return gulp.src(path.src.page)
+				.pipe(rigger())
+				.pipe(fileInclude())
+				.pipe(version(versionConfig))
+				.pipe(gulp.dest(path.build.page));
+		case 'dev':
+			return gulp.src(path.src.page)
+				.pipe(rigger())
+				.pipe(fileInclude())
+				.pipe(version(versionConfig))
+				.pipe(gulp.dest(path.dev.page))
+				.pipe(reload({stream: true}));
+		default:
+			console.log(false);
+			break;
+	}
+}
 
-// function page() {
-// 	switch (local_path) {
-// 		case 'build':
-// 			return gulp.src(path.src.page)
-// 				.pipe(rigger())
-// 				.pipe(fileInclude())
-// 				.pipe(version(versionConfig))
-// 				.pipe(gulp.dest(path.build.page));
-// 		case 'dev':
-// 			return gulp.src(path.src.page)
-// 				.pipe(rigger())
-// 				.pipe(fileInclude())
-// 				.pipe(version(versionConfig))
-// 				.pipe(gulp.dest(path.dev.page))
-// 				.pipe(reload({stream: true}));
-// 		default:
-// 			console.log(false);
-// 			break;
-// 	}
-// }
 
 function css() {
 	switch (local_path) {
@@ -235,14 +235,14 @@ function dev(done) {
 
 function watch() {
 	gulp.watch([path.watch.html], gulp.parallel(dev, html));
-	// gulp.watch([path.watch.page], gulp.parallel(dev, page));
+	gulp.watch([path.watch.page], gulp.parallel(dev, page));
 	gulp.watch([path.watch.css], gulp.parallel(dev, css));
 	gulp.watch([path.watch.js], gulp.parallel(dev, js));
 	gulp.watch([path.watch.img], gulp.parallel(dev, img));
 	gulp.watch([path.watch.fonts], gulp.parallel(dev, fonts));
 }
 
-exports.build = gulp.parallel(build, html, css, js, img, fonts);
-exports.dev = gulp.parallel(dev, html, css, js, img, fonts);
+exports.build = gulp.parallel(build, html, page, css, js, img, fonts);
+exports.dev = gulp.parallel(dev, html, page, css, js, img, fonts);
 
-gulp.task('default', gulp.series(dev, html, css, js, img, fonts, gulp.parallel([webserver, webserver1], watch)));
+gulp.task('default', gulp.series(dev, html, page, css, js, img, fonts, gulp.parallel([webserver, webserver1], watch)));

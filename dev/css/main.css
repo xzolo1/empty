@@ -253,6 +253,7 @@
     justify-content: space-between;
     transform: translateX(150%);
     transition: 0.3s;
+    padding-top: 150px;
   }
   .header__menu-mobile-box {
     display: flex;
@@ -1602,13 +1603,15 @@
 }
 
 .menu {
-  background: #86A8DB;
+  background: white;
   display: flex;
   justify-content: center;
-  max-width: 1600px;
   width: 100%;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: fixed;
+  z-index: 9;
 }
 .menu__nav {
   display: flex;
@@ -1616,7 +1619,7 @@
   align-items: center;
   width: 400px;
   height: 70px;
-  background: #fff;
+  background: #86A8DB;
   position: relative;
   border-radius: 10px;
 }
@@ -1664,7 +1667,7 @@
   background: #29fd53;
   top: -50%;
   border-radius: 50%;
-  border: 6px solid #86A8DB;
+  border: 6px solid white;
   transition: 0.5s;
 }
 .menu__nav-links-indicator:before {
@@ -1676,7 +1679,7 @@
   height: 20px;
   background: transparent;
   border-top-right-radius: 20px;
-  box-shadow: 0px -10px #86A8DB;
+  box-shadow: 0px -10px white;
 }
 .menu__nav-links-indicator:after {
   content: "";
@@ -1687,7 +1690,7 @@
   height: 20px;
   background: transparent;
   border-top-left-radius: 20px;
-  box-shadow: 0px -10px #86A8DB;
+  box-shadow: 0px -10px white;
 }
 .menu__nav-links-icon {
   position: relative;
@@ -1695,15 +1698,19 @@
   line-height: 75px;
   font-size: 1.5rem;
   transition: 0.5s;
-  color: #86A8DB;
+  color: #000000;
 }
 .menu__nav-links-text {
   position: absolute;
-  color: #86A8DB;
+  color: #000000;
   font-weight: 400;
   font-size: 0.75em;
   letter-spacing: 0.05em;
   transition: 0.5s;
   opacity: 0;
   transform: translateY(20px);
+}
+
+#content {
+  padding-top: 150px;
 }

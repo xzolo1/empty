@@ -1,7 +1,6 @@
 export default {
     init() {
         this.slider();
-        this.menu();
     },
 
     slider() {
@@ -152,13 +151,6 @@ export default {
         }
     },
 
-    menu(){
-        let menuBtn = $('.menu__nav-links');
-        menuBtn.click(function (){
-            menuBtn.removeClass('active');
-            $(this).addClass('active');
-            $('.menu__nav-indicator').css('left', $(this).offset().left + 'px');
-        });
-    }
+
 
 }
